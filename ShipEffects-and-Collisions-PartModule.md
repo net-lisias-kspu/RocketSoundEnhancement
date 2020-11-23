@@ -57,7 +57,7 @@ Types of Collision Controls for SoundLayer's data.
 | **dirt** | Play sounds when this part collides with the ground eg: *Planet Surfaces* |
 | **concrete** | Play sounds when this part collides with Static Objects eg: *KSC, Runway* |
 | **vessel** | Play sounds when this part collides with another Vessel/Part |
-| empty | Play sounds at any situation |
+| none | Play sounds at any situation (Default) |
 
     MODULE
     {
