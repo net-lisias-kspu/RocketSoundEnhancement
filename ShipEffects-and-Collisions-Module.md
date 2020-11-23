@@ -40,7 +40,7 @@ Physics based Sound Effects Engine. These controls are fed on [**SoundLayer's**]
 	}
 
 
-## Module - ShipEffectsCollisions
+## PartModule - ShipEffectsCollisions
 Part Module to add Collision Sound Effects to Parts
 | Collision Types | Description | 
 | :------------- | :----------: |
