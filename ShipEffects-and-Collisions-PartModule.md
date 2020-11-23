@@ -72,7 +72,7 @@ Types of Collision Controls for SoundLayer's data.
 				//	Only play this SoundLayer when we collide with concrete or dirt. not ships
 				data = concrete-dirt
 				
-				// Multiple audioClips for Randomization so we don't get the Machine Gun Effect.
+				//	Multiple audioClips for Randomization so we don't get the Machine Gun Effect.
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-1
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-2
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-3
