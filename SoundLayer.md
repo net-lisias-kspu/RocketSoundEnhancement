@@ -19,7 +19,7 @@
 ## Channel
 | Values | Description | 
 | :------------- | :----------: |
-| **ShipInternal** |  Assigns the SoundLayer to only be played  on the Internal Camera (IVA). This Channel Bypasses any Sound Effects including Listener Effects, see [AudioSource (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource.html) |
-| **ShipExternal** |  Assigns the SoundLayer to only be played on the External Camera |
+| **ShipInternal** |  Play this SoundLayer when the Internal Camera (IVA Cam) is Active. This Channel Bypasses any Sound Effects including Listener Effects, see [AudioSource (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource.html) |
+| **ShipExternal** |  Play this SoundLayer when the External Camera is Active. eg; Flight Camera |
 | **ShipBoth** |  Default. Play this SoundLayer regardless of Active Camera |
 
