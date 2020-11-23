@@ -7,7 +7,7 @@ PartModule for Engines. For Multi-Mode engines, You just have to specify the Eng
 | **Disengage{}** | Disengage Group |
 | **Flameout{}** | Flameout Group |
 
-Example Module Manager Config for S3 KS-25 "Vector" Liquid Fuel Engine
+Example Module Manager Config from Rocket Sound Enhancement Stock Configs for S3 KS-25 "Vector" Liquid Fuel Engine
 
 	@PART[SSME]:FOR[RocketSoundEnhancement]
 	{
