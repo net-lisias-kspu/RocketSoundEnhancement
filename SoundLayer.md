@@ -4,7 +4,7 @@
 
 | Properties | Description | 
 | :------------- | :----------: |
-| **name** | Name of this SoundLayer, Must be unique for each use case. |
+| **name** | Name of this SoundLayer, Must be unique. |
 | **audioClip** | Path of your audio file eg: *ModName/Sounds/MySound* |
 | **loop** | If this SoundLayer is a loop: *True / False* |
 | **loopAtRandom** | Start the loop at a random location on the sample: *True / False* |
