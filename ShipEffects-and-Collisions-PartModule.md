@@ -55,8 +55,8 @@ Notes: **massToVolume** and **massToPitch** is controlled by the Part's Wet Mass
 | **CollisionStay{}** | Scraping, Sliding |
 | **CollisionExit{}** | End of Collision |
 
-SoundLayer "data" values.
-| | Description | 
+
+| SoundLayer "data" Values| Description | 
 | :------------- | :----------: |
 | **dirt** | Play sounds when this part collides with the ground eg: *Planet Surfaces* |
 | **concrete** | Play sounds when this part collides with Static Objects eg: *KSC, Runway* |
