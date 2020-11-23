@@ -6,7 +6,7 @@ PartModule for Wheels.
 
 | SoundLayer Group | Description | 
 | :------------- | :----------: |
-| **Torque{}** | Motor Torque, 0.0 - 1.0 (0-100) |
+| **Torque{}** | Motor Torque, 0.0 - 1.0 (0-100%) |
 | **Speed{}** | Motor Enabled Wheel Speed (m/s) |
 | **Ground{}** | Wheel's Speed on the Ground (m/s) |
 | **Slip{}** | Wheel Slip (m/s) |
