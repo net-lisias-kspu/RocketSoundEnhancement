@@ -9,7 +9,7 @@ Notes: **massToVolume** and **massToPitch** is controlled by Vessel's Total Mass
 | :------------- | :----------: |
 | **Acceleration** | Change in Velocity (m/s) |
 | **Jerk** | Change in Acceleration (m/s) |
-| **AirSpeed** | Velocity Multiplied by Atmospheric Pressure (m/s) |
+| **AirSpeed** | Velocity in Atmosphere (m/s) |
 | **GroundSpeed** | Surface Speed on Ground (m/s) |
 | **Thrust** | Acceleration (m/s) from Total Ship Engine Thrust |
 
