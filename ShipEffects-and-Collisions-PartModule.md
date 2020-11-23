@@ -13,7 +13,7 @@ These Controls are assigned in [**SoundLayer's**](https://github.com/ensou04/Roc
 
     SHIPEFFECTS_SOUNDLAYERS
     {
-	    //	Play Sound Effects when the Ship Changes in Acceleration (Jerk)
+	    // Play Sound Effects when the Ship Changes in Acceleration (Jerk)
 	    SOUNDLAYER
 	    {
 		    name = Small_Rattles
@@ -23,17 +23,17 @@ These Controls are assigned in [**SoundLayer's**](https://github.com/ensou04/Roc
 		    spread = 0.5
 		    channel = ShipInternal
 		    
-		    //	Control this SoundLayer with Jerk
+		    // Control this SoundLayer with Jerk
 		    data = Jerk
 		    
-		    //	Control the Volume based on the Amount of Jerk Dealt
-		    //	Jerk : Volume
+		    // Control the Volume based on the Amount of Jerk Dealt
+		    // Jerk : Volume
 		    volume = 0.0  0.0
 		    volume = 0.5  0.0
 		    volume = 25  1.0
 		    
-		    //	Attenuate Pitch Based on Mass
-		    //	Mass : Pitch
+		    // Attenuate Pitch Based on Mass
+		    // Mass : Pitch
 		    massToPitch = 0.0  1.2
 		    massToPitch = 50  1.2
 		    massToPitch = 100  1
@@ -69,10 +69,10 @@ Types of Collision Controls for SoundLayer's data.
 			{
 				name = Ground_Impact-High
 				
-				//	Only play this SoundLayer when we collide with concrete or dirt. not ships
+				// Only play this SoundLayer when we collide with concrete or dirt. not ships
 				data = concrete-dirt
 				
-				//	Multiple audioClips for Randomization so we don't get the Machine Gun Effect.
+				// Multiple audioClips for Randomization so we don't get the Machine Gun Effect.
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-1
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-2
 				audioClip = RocketSoundEnhancement/Sounds/Physics/Impacts/Ground_Impact-High-3
@@ -81,12 +81,12 @@ Types of Collision Controls for SoundLayer's data.
 				spread = 0.25
 				channel = ShipBoth
 				
-				//	Control the Volume based on the Relative Velocity on Impact
+				// Control the Volume based on the Relative Velocity on Impact
 				volume = 0.0 0.0
 				volume = 15 0.0
 				volume = 30 1.0
 				
-				//	Control the Pitch based on the Relative Velocity on Impact
+				// Control the Pitch based on the Relative Velocity on Impact
 				pitch = 0.0 0.8
 				pitch = 15 0.8
 				pitch = 30 1.2
