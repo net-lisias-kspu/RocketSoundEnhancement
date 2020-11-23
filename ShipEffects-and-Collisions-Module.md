@@ -1,4 +1,3 @@
-
 ## ShipEffects
 Physics based Sound Effects Engine. These controls are fed on [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnhancement/wiki/SoundLayer) **data** Parameter.
 
@@ -10,6 +9,7 @@ Physics based Sound Effects Engine. These controls are fed on [**SoundLayer's**]
 | **GroundSpeed** | Surface Speed on Ground (m/s) |
 | **Thrust** | Acceleration (m/s) from Total Ship Engine Thrust |
 
+	// Config for ShipEffects. This is Global and get's applied per-vessel in-game.
     SHIPEFFECTS_SOUNDLAYERS
     {
 	    //	Play Sound Effects when the Ship Changes in Acceleration (Jerk)
