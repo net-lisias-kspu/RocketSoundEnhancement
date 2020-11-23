@@ -1,5 +1,3 @@
-PartModule for Engines. For Multi-Mode engines, You just have to specify the EngineIds for each Mode.
-
 | Parameters | Description | 
 | :------------- | :----------: |
 | **volume** | Master Volume for this PartModule |
