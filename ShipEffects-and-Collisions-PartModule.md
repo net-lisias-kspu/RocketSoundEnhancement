@@ -3,7 +3,7 @@ Physics based Sound Effects Engine. This Config is Global and gets applied to ea
 
 These Controls are assigned in [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnhancement/wiki/SoundLayer) **data** Parameter.
 
-Notes: massToVolume and massToPitch is controlled by Total Vessel's Mass
+Notes: **massToVolume** and **massToPitch** is controlled by Total Vessel's Mass
 
 | Physics Controls | Description | 
 | :------------- | :----------: |
@@ -46,7 +46,8 @@ Notes: massToVolume and massToPitch is controlled by Total Vessel's Mass
 
 ## PartModule - ShipEffectsCollisions
 Part Module to add Collision Sound Effects to Parts
-Notes: massToVolume and massToPitch is controlled by the Part's Wet Mass
+
+Notes: **massToVolume** and **massToPitch** is controlled by the Part's Wet Mass
 
 | SoundLayer Group | Description | 
 | :------------- | :----------: |
