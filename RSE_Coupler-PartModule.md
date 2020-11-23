@@ -2,7 +2,7 @@ PartModule for Decouplers, LaunchClamps and Docking Ports.
 
 SoundLayers node only serves as a wrapper for this PartModule. Multiple SoundLayers does not work for the same Action and only the first one will be applied.
 
-SoundLayer "**name**" values for Part Types:
+SoundLayer "**name**" values for Part Actions:
 | value | Part Type| 
 | :------------- | :----------: |
 | **decouple** | Decouplers |
@@ -20,7 +20,7 @@ Example Module Manager Patch from Rocket Sound Enhancement Stock Configs
 			name = RSE_Coupler
 			SOUNDLAYER
 			{
-				// name of Part Type
+				// name of Part Action
 				name = decouple
 				audioClip = RocketSoundEnhancement/Sounds/Decouplers/Decoupler_1
 				spread = 0.25
