@@ -11,6 +11,9 @@
 | **channel** | *ShipInternal, ShipExternal, ShipBoth (Default)*. See [Channel](#channel) |
 | **spread** | (0.0-1.0) from 0 Degrees to 360 Degrees, see [AudioSource.Spread (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource-spread.html). |
 | **data** | Used to store which type of control is used for this SoundLayer |
+| **spool** | *True / False (Default)* |
+| **spoolTime** | Speed at which the Control Value moves from the past Value to the New Value|
+| **spoolIdle** | Lowest Amount of Control Value if the PartModule is Enabled or Functional (Engines) |
 | **volume** | *FXCurve* |
 | **pitch** | *FXCurve* |
 | **massToVolume** | Attenuate the Volume based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions-PartModule) Only, *FXCurve* |
