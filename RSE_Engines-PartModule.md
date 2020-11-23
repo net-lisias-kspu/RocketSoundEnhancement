@@ -1,3 +1,4 @@
+
 PartModule for Engines. 
 
 | SoundLayer Groups | Description | 
@@ -11,7 +12,7 @@ Example Module Manager Config for S3 KS-25 "Vector" Liquid Fuel Engine
 
 	@PART[SSME]:FOR[RocketSoundEnhancement]
 	{
-		// Remove Stock Audio.
+		//	Remove Stock Audio.
 		@EFFECTS{@running_closed{!AUDIO{}}}
 		@EFFECTS{@engage{!AUDIO{}}}
 		@EFFECTS{@flameout{!AUDIO{}}}
@@ -21,8 +22,8 @@ Example Module Manager Config for S3 KS-25 "Vector" Liquid Fuel Engine
 			name = RSE_Engines
 			volume = 1.0
 			
-			// Vector's Engine ID
-			// Crossfade between two SoundLayers based on Thrust Power
+			//	Vector's Engine ID
+			//	Crossfade between two SoundLayers based on Thrust Power
 			KS25
 			{
 				SOUNDLAYER
