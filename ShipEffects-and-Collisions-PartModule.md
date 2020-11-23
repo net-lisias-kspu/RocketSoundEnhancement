@@ -1,7 +1,7 @@
 ## Config - SHIPEFFECTS_SOUNDLAYERS
 Physics based Sound Effects Engine. This Config is Global and gets applied to each vessel in-game.
 
-Controls are fed on [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnhancement/wiki/SoundLayer) **data** Parameter.
+These Controls are fed in [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnhancement/wiki/SoundLayer) **data** Parameter.
 
 | Physics Controls | Description | 
 | :------------- | :----------: |
