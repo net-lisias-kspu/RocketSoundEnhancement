@@ -44,7 +44,7 @@ Controls are fed on [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnh
 
 ## PartModule - ShipEffectsCollisions
 Part Module to add Collision Sound Effects to Parts
-| Collision Types | Description | 
+| SoundLayer Group | Description | 
 | :------------- | :----------: |
 | **CollisionEnter{}** | Impact |
 | **CollisionStay{}** | Scraping, Sliding |
