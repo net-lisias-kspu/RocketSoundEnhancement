@@ -55,7 +55,6 @@ Notes: **massToVolume** and **massToPitch** is controlled by the Part's Wet Mass
 | **CollisionStay{}** | Scraping, Sliding |
 | **CollisionExit{}** | End of Collision |
 
-Types of Collision Controls for SoundLayer's data.
 
 | Data | Description | 
 | :------------- | :----------: |
