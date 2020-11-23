@@ -17,6 +17,7 @@
 | **massToPitch** | Attenuate the Pitch based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions) Only, *FXCurve* |
 
 ## Channel
+Not be confused with KSP's "channel" parameter.
 | Values | Description | 
 | :------------- | :----------: |
 | **ShipInternal** |  Play this SoundLayer when the Internal Camera (IVA Cam) is Active. This Channel Bypasses any Sound Effects including Listener Effects.
