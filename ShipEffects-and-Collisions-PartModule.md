@@ -63,7 +63,7 @@ Types of Collision Controls for SoundLayer's data.
     {
 	    name = ShipEffectsCollisions
 
-		CollisionStay
+		CollisionEnter
 		{
 			SOUNDLAYER
 			{
