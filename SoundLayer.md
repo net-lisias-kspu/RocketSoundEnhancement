@@ -13,8 +13,8 @@
 | **data** | Used to store which type of control is used for this SoundLayer |
 | **volume** | *FXCurve* |
 | **pitch** | *FXCurve* |
-| **massToVolume** | Attenuate the Volume based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions) Only, *FXCurve* |
-| **massToPitch** | Attenuate the Pitch based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions) Only, *FXCurve* |
+| **massToVolume** | Attenuate the Volume based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions-PartModule) Only, *FXCurve* |
+| **massToPitch** | Attenuate the Pitch based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions-PartModule) Only, *FXCurve* |
 
 ## Channel
 Not the same as KSP's "channel" parameter.
