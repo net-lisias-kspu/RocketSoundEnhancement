@@ -19,7 +19,7 @@ Example Module Manager Config from Rocket Sound Enhancement Stock Configs for [S
 		MODULE
 		{
 			name = RSE_Engines
-			volume = 1.0
+			volume = 1.0 // Master Volume for this PartModule
 			
 			// Vector's Engine ID
 			// Crossfade between two SoundLayers based on Thrust Power
