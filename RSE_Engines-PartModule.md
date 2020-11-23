@@ -1,9 +1,8 @@
-
-PartModule for Engines. 
+PartModule for Engines. For Multi-Mode engines, You just have to specify the EngineIds for each Mode.
 
 | SoundLayer Groups | Description | 
 | :------------- | :----------: |
-| *EngineId{}* | Replace "EngineId" with the Engine's. Default its "**Engine**" unless specified under [ModuleEngines](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEngines) or [ModuleEnginesFX](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEnginesFX) |
+| *EngineId{}* | Replace "EngineId" with the Engine's. Default is "**Engine**" unless specified under [ModuleEngines](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEngines) or [ModuleEnginesFX](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEnginesFX). |
 | **Engage{}** | Engage Group |
 | **Disengage{}** | Disengage Group |
 | **Flameout{}** | Flameout Group |
