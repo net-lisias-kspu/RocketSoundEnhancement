@@ -17,7 +17,7 @@
 | **massToPitch** | Attenuate the Pitch based on Ship or Part Mass, [**ShipEffects and Collisions**](https://github.com/ensou04/RocketSoundEnhancement/wiki/ShipEffects-and-Collisions) Only, *FXCurve* |
 
 ## Channels
-| Properties | Description | 
+| Values | Description | 
 | :------------- | :----------: |
 | **ShipInternal** |  Assigns the SoundLayer to be played only on the Internal Camera (IVA). This Channel Bypasses any Sound Effects including Listener Effects, see [AudioSource (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource.html) |
 | **ShipExternal** |  Assigns the SoundLayer to be played only on the External Camera |
