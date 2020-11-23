@@ -38,7 +38,7 @@ Example Patch for TR-2L Ruggedized Vehicular Wheel
 					loopAtRandom = true
 					channel = ShipBoth
 					spool = true
-					spoolTime = 60
+					spoolSpeed = 60
 					spread = 0.12
 					volume = 0.0  0.0
 					volume = 1.0  0.5
@@ -55,7 +55,7 @@ Example Patch for TR-2L Ruggedized Vehicular Wheel
 					loopAtRandom = true
 					channel = ShipBoth
 					spool = true
-					spoolTime = 60
+					spoolSpeed = 60
 					spread = 0.12
 					volume = 0.0  0.0
 					volume = 1.0  0.8
@@ -110,7 +110,7 @@ Example Patch for TR-2L Ruggedized Vehicular Wheel
 					loopAtRandom = true
 					channel = ShipBoth
 					spool = true
-					spoolTime = 2
+					spoolSpeed = 2
 					spread = 0.12
 					volume = 0.0  0.0
 					volume = 0.1  0.5
@@ -127,7 +127,7 @@ Example Patch for TR-2L Ruggedized Vehicular Wheel
 					loopAtRandom = true
 					channel = ShipBoth
 					spool = true
-					spoolTime = 2
+					spoolSpeed = 2
 					spread = 0.12
 					volume = 0.0  0.0
 					volume = 0.1  0.5
