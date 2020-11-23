@@ -3,7 +3,7 @@ Physics based Sound Effects Engine. This Config is Global and gets applied to ea
 
 These Controls are assigned in [**SoundLayer's**](https://github.com/ensou04/RocketSoundEnhancement/wiki/SoundLayer) **data** Parameter.
 
-Notes: **massToVolume** and **massToPitch** is controlled by Total Vessel's Mass
+Notes: **massToVolume** and **massToPitch** is controlled by Vessel's Total Mass
 
 | Physics Controls | Description | 
 | :------------- | :----------: |
