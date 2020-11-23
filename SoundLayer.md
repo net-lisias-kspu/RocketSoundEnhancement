@@ -9,7 +9,7 @@
 | **loop** | If this SoundLayer is a loop: *True / False (Default)* |
 | **loopAtRandom** | Start the loop at a random location on the sample: *True / False (Default)* |
 | **channel** | *ShipInternal, ShipExternal, ShipBoth (Default)*. See [Channel](#channel) |
-| **spread** | (0.0-1.0) from 0 Degrees to 360 Degrees, see [AudioSource.Spread (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource-spread.html) for more details |
+| **spread** | (0.0-1.0) from 0 Degrees to 360 Degrees, see [AudioSource.Spread (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource-spread.html). |
 | **data** | Used to store which type of control is used for this SoundLayer |
 | **volume** | *FXCurve* |
 | **pitch** | *FXCurve* |
