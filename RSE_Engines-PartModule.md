@@ -11,7 +11,7 @@ Example Module Manager Config from Rocket Sound Enhancement Stock Configs for [S
 
 	@PART[SSME]:FOR[RocketSoundEnhancement]
 	{
-		//	Remove Stock Audio.
+		// Remove Stock Audio.
 		@EFFECTS{@running_closed{!AUDIO{}}}
 		@EFFECTS{@engage{!AUDIO{}}}
 		@EFFECTS{@flameout{!AUDIO{}}}
@@ -21,8 +21,8 @@ Example Module Manager Config from Rocket Sound Enhancement Stock Configs for [S
 			name = RSE_Engines
 			volume = 1.0
 			
-			//	Vector's Engine ID
-			//	Crossfade between two SoundLayers based on Thrust Power
+			// Vector's Engine ID
+			// Crossfade between two SoundLayers based on Thrust Power
 			KS25
 			{
 				SOUNDLAYER
