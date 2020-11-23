@@ -5,7 +5,7 @@ These Controls are assigned in [**SoundLayer's**](https://github.com/ensou04/Roc
 
 Notes: **massToVolume** and **massToPitch** is controlled by Vessel's Total Mass
 
-| Physics Controls | Description | 
+| Physics Controls (data) | Description | 
 | :------------- | :----------: |
 | **Acceleration** | Change in Velocity (m/s) |
 | **Jerk** | Change in Acceleration (m/s) |
@@ -56,7 +56,7 @@ Notes: **massToVolume** and **massToPitch** is controlled by the Part's Wet Mass
 | **CollisionExit{}** | End of Collision |
 
 
-| SoundLayer Data | Description | 
+| data | Description | 
 | :------------- | :----------: |
 | **dirt** | Play sounds when this part collides with the ground eg: *Planet Surfaces* |
 | **concrete** | Play sounds when this part collides with Static Objects eg: *KSC, Runway* |
