@@ -6,7 +6,7 @@ PartModule for Engines.
 
 | SoundLayer Group | Description | 
 | :------------- | :----------: |
-| ***EngineId{}*** | Replace "EngineId" with the Engine's. Default is "**Engine**" unless specified under [ModuleEngines](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEngines) or [ModuleEnginesFX](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEnginesFX) PartModule. |
+| ***EngineId{}*** | Replace "EngineId" with the Correct EngineId. Default is "**Engine**" unless specified under [ModuleEngines](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEngines) or [ModuleEnginesFX](https://wiki.kerbalspaceprogram.com/wiki/Module#ModuleEnginesFX) PartModule. |
 | **Engage{}** | Engage Group |
 | **Disengage{}** | Disengage Group |
 | **Flameout{}** | Flameout Group |
