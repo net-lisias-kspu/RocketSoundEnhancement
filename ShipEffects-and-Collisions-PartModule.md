@@ -12,7 +12,7 @@ SoundLayer "data" Values
 | **Jerk** | Change in Acceleration (m/s) |
 | **AirSpeed** | Velocity in Atmosphere (m/s) |
 | **GroundSpeed** | Surface Speed on Ground (m/s) |
-| **Thrust** | Acceleration (m/s) from Ship's Total Engine Thrust (CurrentThrust / Ship Mass) |
+| **Thrust** | Acceleration (m/s) from Ship's Total Engine Thrust (Current Thrust / Ship Mass) |
 
     SHIPEFFECTS_SOUNDLAYERS
     {
