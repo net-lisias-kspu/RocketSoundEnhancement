@@ -6,12 +6,12 @@
 | :------------- | :----------: |
 | **name** | Name of this SoundLayer, Must be unique. |
 | **audioClip** | Path of your audio file eg: *ModName/Sounds/MySound* |
-| **loop** | If this SoundLayer is a loop: *True / False (Default)* |
-| **loopAtRandom** | Start the loop at a random location on the sample: *True / False (Default)* |
-| **channel** | *ShipInternal, ShipExternal, ShipBoth (Default)*. See [Channel](#channel) |
+| **loop** | If this SoundLayer is a loop: *True / False (Default = False)* |
+| **loopAtRandom** | Start the loop at a random location on the sample: *True / False (Default = False)* |
+| **channel** | *ShipInternal, ShipExternal, ShipBoth (Default = ShipBoth)*. See [Channel](#channel) |
 | **spread** | (0.0-1.0) from 0 Degrees to 360 Degrees, see [AudioSource.Spread (Unity - Scripting API)](https://docs.unity3d.com/ScriptReference/AudioSource-spread.html). |
 | **data** | Used to store which type of control is used for this SoundLayer |
-| **spool** | *True / False (Default)* |
+| **spool** | *True / False (Default = False)* |
 | **spoolSpeed** | Speed at which the Control Value moves from the past Value to the New Value _(Low = Slow, High = Fast)_|
 | **spoolIdle** | Lowest Amount of Control Value if the PartModule is Enabled or Functional (Engines) |
 | **volume** | *FXCurve* |
