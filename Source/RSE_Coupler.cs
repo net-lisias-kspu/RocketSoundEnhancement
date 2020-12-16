@@ -94,14 +94,10 @@ namespace RocketSoundEnhancement
             if(!HighLogic.LoadedSceneIsFlight)
                 return;
 
-            foreach(var asource in Sources.Keys) {
-                if(asource == "decouple" || asource == "activate")
-                    continue;
-
-                if(!Sources[asource].isPlaying) {
-                    UnityEngine.Object.Destroy(Sources[asource]);
-                    Sources.Remove(asource);
-                }
+            var itemsToRemove = Sources.Where(x => x.Key != "decouple" && x.Key != "activate" && !Sources[x.Key].isPlaying).ToArray();
+            foreach(var item in itemsToRemove) {
+                Destroy(Sources[item.Key]);
+                Sources.Remove(item.Key);
             }
         }
 
