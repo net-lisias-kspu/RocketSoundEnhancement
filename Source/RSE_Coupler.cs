@@ -96,7 +96,7 @@ namespace RocketSoundEnhancement
 
             var itemsToRemove = Sources.Where(x => x.Key != "decouple" && x.Key != "activate" && !Sources[x.Key].isPlaying).ToArray();
             foreach(var item in itemsToRemove) {
-                Destroy(Sources[item.Key]);
+                UnityEngine.Object.Destroy(Sources[item.Key]);
                 Sources.Remove(item.Key);
             }
         }
