@@ -16,7 +16,7 @@ SoundLayer "**data**" values for **Ground** and **Slip** Groups
 | :------------- | :----------: |
 | **dirt** | Only play sounds while on Ground. eg: *Planet Surfaces* |
 | **concrete** | Only play sounds while on Concrete: *KSC, Runway* |
-| **vessel** | Only play sounds while on Vessel/Part |
+| **vessel** | Only play sounds while colliding with a Vessel/Part |
 | none | Play sounds at any situation (Default) |
 
 Example Patch for TR-2L Ruggedized Vehicular Wheel
