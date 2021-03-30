@@ -1,0 +1,18 @@
+{
+	"NAME"		: "Rocket Sound Enhancements /L Unofficial",
+	"URL"		: "https://raw.githubusercontent.com/net-lisias-kspu/RocketSoundEnhancements/master/RocketSoundEnhancements.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-kspu/RocketSoundEnhancements/releases",
+	"CHANGE_LOG"	: "https://raw.githubusercontent.com/net-lisias-kspu/RocketSoundEnhancements/master/CHANGE_LOG.md",
+	"CHANGE_LOG_URL": "https://raw.githubusercontent.com/net-lisias-kspu/RocketSoundEnhancements/master/CHANGES.md",
+	"VERSION":{
+		"MAJOR":0,
+		"MINOR":5,
+		"PATCH":4,
+		"BUILD":0
+		},
+	"KSP_VERSION_MIN":{
+		"MAJOR":1,
+		"MINOR":10,
+		"PATCH":1
+		}
+}
