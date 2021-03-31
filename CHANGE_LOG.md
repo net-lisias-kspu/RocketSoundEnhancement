@@ -1,5 +1,7 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2020-1127: 0.5.4 (ensou04) for KSP 1.5.1
+	+ Fixed Null spam with Chatterer
 * 2020-1123: 0.5.3 (ensou04) for KSP 1.5.1
 	+ Fixed Confusing Naming Conventions
 	+ Added Tooltips for Lowpass Filter Settings
