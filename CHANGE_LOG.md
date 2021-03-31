@@ -1,5 +1,9 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2020-1123: 0.5.3 (ensou04) for KSP 1.5.1
+	+ Fixed Confusing Naming Conventions
+	+ Added Tooltips for Lowpass Filter Settings
+	+ Updated Configs
 * 2020-1121: 0.5.2 (ensou04) for KSP 1.5.1
 	+ Added Option to Muffle Chatterer Sounds (off by default)
 	+ Changed ShipEffects Thrust controls to TotalThrust / Mass instead of just Total Thrust Power
