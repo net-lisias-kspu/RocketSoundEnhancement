@@ -1,5 +1,22 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2020-1119: 0.5.0 (ensou04) for KSP 1.5.1
+	+ Rewrite from the ground up.
+	+ IMPORTANT:
+	+ Remove the old v0.4.0 RSE entirely, nuke it. not a single code was carried over to v0.5.0 not deleting will result in an unexpected outcome.
+	+ Changelog:
+			- EVERYTHING
+			- ShipEffects is integrated and rewritten from scratch
+			- Old RSE plugin now deprecated. delete the old v0.4.0 folder entirely
+			- All new sounds recorded and created.
+			- Wheel Sounds
+			- Collision Sounds
+			- Decouplers, Docking Ports and Launch Clamps
+			- Stock Rocket Engine Patches
+			- Wheel Patches
+			- Restock Support
+	+ Dependencies (Default Sound Library and Configs):
+			- Module Manager
 * 2019-0102: 0.4.0 (ensou04) for KSP 1.5.1
 	+ added one shot samples to most lower stage engines.
 * 2018-1201: 0.3.1 (ensou04) for KSP 1.5.1
