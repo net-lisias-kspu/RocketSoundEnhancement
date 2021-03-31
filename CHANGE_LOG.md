@@ -1,5 +1,7 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2019-0102: 0.4.0 (ensou04) for KSP 1.5.1
+	+ added one shot samples to most lower stage engines.
 * 2018-1201: 0.3.1 (ensou04) for KSP 1.5.1
 	+ No changelog provided
 * 2018-1128: 0.3.0 (ensou04) for KSP 1.5.1
