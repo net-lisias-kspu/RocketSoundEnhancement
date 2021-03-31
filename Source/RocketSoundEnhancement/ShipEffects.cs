@@ -38,8 +38,8 @@ namespace RocketSoundEnhancement
                 }
             }
 
-            foreach(var layerNode in RSE.SoundLayerNodes) {
-                var soundLayer = AudioUtility.CreateSoundLayer(layerNode);
+            foreach(ConfigNode layerNode in RSE.SoundLayerNodes) {
+                SoundLayer soundLayer = AudioUtility.CreateSoundLayer(layerNode);
                 if(soundLayer.audioClips != null && !SoundLayers.Contains(soundLayer)) {
                     SoundLayers.Add(soundLayer);
                 }
@@ -54,7 +54,8 @@ namespace RocketSoundEnhancement
         {
             gamePause = true;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach (AudioSource source in Sources.Values)
+                {
                     if(source.isPlaying) {
                         source.Pause();
                     }
@@ -65,7 +66,7 @@ namespace RocketSoundEnhancement
         {
             gamePause = false;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     if(source.isPlaying) {
                         source.UnPause();
                     }
@@ -87,7 +88,7 @@ namespace RocketSoundEnhancement
         public override void OnUnloadVessel()
         {
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Stop();
                     UnityEngine.Object.Destroy(source);
                 }
@@ -99,7 +100,7 @@ namespace RocketSoundEnhancement
         {
             if(initialized) {
                 if(Sources.Count > 0) {
-                    foreach(var source in Sources.Values) {
+                    foreach(AudioSource source in Sources.Values) {
                         source.Stop();
                         UnityEngine.Object.Destroy(source);
                     }
@@ -134,7 +135,7 @@ namespace RocketSoundEnhancement
             TotalMass = vessel.GetTotalMass();
             DryMass = vessel.Parts.Sum(x => x.prefabMass);
 
-            var excludedPart = vessel.Parts.Find(x => x.Modules.Contains("ModuleAsteroid"));
+            Part excludedPart = vessel.Parts.Find(x => x.Modules.Contains("ModuleAsteroid"));
             if(excludedPart != null) {
                 TotalMass -= excludedPart.mass;
                 DryMass -= excludedPart.prefabMass;
@@ -142,7 +143,7 @@ namespace RocketSoundEnhancement
 
             float controlDampener = Mathf.Lerp(0.2f, 0.1f, DryMass / TotalMass);
 
-            foreach(var soundLayer in SoundLayers) {
+            foreach(SoundLayer soundLayer in SoundLayers) {
                 if(!controllers.ContainsKey(soundLayer.name)) {
                     controllers.Add(soundLayer.name, 0);
                 }
@@ -201,10 +202,10 @@ namespace RocketSoundEnhancement
                     break;
                 case PhysicsControl.Thrust:
                     float totalThrust = 0;
-                    var engines = vessel.parts.Where(x => x.GetComponent<ModuleEngines>());
+                    IEnumerable<Part> engines = vessel.parts.Where(x => x.GetComponent<ModuleEngines>());
                     if(engines.Count() > 0) {
-                        foreach(var engine in engines) {
-                            var module = engine.GetComponent<ModuleEngines>();
+                        foreach(Part engine in engines) {
+                            ModuleEngines module = engine.GetComponent<ModuleEngines>();
                             if(module.EngineIgnited) {
                                 totalThrust += module.GetCurrentThrust();
                             }

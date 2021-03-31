@@ -27,7 +27,7 @@ namespace RocketSoundEnhancement
                 audioParent.transform.parent = part.transform;
             }
 
-            var configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
+            ConfigNode configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
 
             SoundLayers = AudioUtility.CreateSoundLayerGroup(configNode.GetNodes("SOUNDLAYER"));
 
@@ -43,9 +43,9 @@ namespace RocketSoundEnhancement
 
             if(fxGroup != null) {
                 if(SoundLayers.Where(x => x.name == fxGroup.name).Count() > 0) {
-                    var soundLayer = SoundLayers.Find(x => x.name == fxGroup.name);
+                    SoundLayer soundLayer = SoundLayers.Find(x => x.name == fxGroup.name);
                     if(soundLayer.audioClips != null) {
-                        var clip = GameDatabase.Instance.GetAudioClip(soundLayer.audioClips[0]);
+                        AudioClip clip = GameDatabase.Instance.GetAudioClip(soundLayer.audioClips[0]);
                         if(clip != null) {
                             fxGroup.sfx = clip;
                             fxGroup.audio = AudioUtility.CreateOneShotSource(
@@ -82,7 +82,7 @@ namespace RocketSoundEnhancement
 
         private void onGameUnpause()
         {
-            foreach(var sound in SoundLayers) {
+            foreach(SoundLayer sound in SoundLayers) {
                 if(Sources.ContainsKey(sound.name)) {
                     Sources[sound.name].volume = sound.volume * HighLogic.CurrentGame.Parameters.CustomParams<Settings>().ShipVolume;
                 }
@@ -94,8 +94,8 @@ namespace RocketSoundEnhancement
             if(!HighLogic.LoadedSceneIsFlight)
                 return;
 
-            var itemsToRemove = Sources.Where(x => x.Key != "decouple" && x.Key != "activate" && !Sources[x.Key].isPlaying).ToArray();
-            foreach(var item in itemsToRemove) {
+            KeyValuePair<string, AudioSource>[] itemsToRemove = Sources.Where(x => x.Key != "decouple" && x.Key != "activate" && !Sources[x.Key].isPlaying).ToArray();
+            foreach(KeyValuePair<string, AudioSource> item in itemsToRemove) {
                 UnityEngine.Object.Destroy(Sources[item.Key]);
                 Sources.Remove(item.Key);
             }
@@ -104,7 +104,7 @@ namespace RocketSoundEnhancement
         public void PlaySound(string action)
         {
             if(SoundLayers.Where(x => x.name == action).Count() > 0) {
-                var soundLayer = SoundLayers.Find(x => x.name == action);
+                SoundLayer soundLayer = SoundLayers.Find(x => x.name == action);
 
                 if(soundLayer.audioClips == null)
                     return;
@@ -122,7 +122,7 @@ namespace RocketSoundEnhancement
                     Sources.Add(soundLayer.name, source);
                 }
 
-                var clip = GameDatabase.Instance.GetAudioClip(soundLayer.audioClips[0]);
+                AudioClip clip = GameDatabase.Instance.GetAudioClip(soundLayer.audioClips[0]);
                 if(clip != null) {
                     source.PlayOneShot(clip);
                 }
@@ -131,7 +131,7 @@ namespace RocketSoundEnhancement
 
         void OnDestroy()
         {
-            foreach(var source in Sources.Keys) {
+            foreach(string source in Sources.Keys) {
                 GameObject.Destroy(Sources[source]);
             }
 

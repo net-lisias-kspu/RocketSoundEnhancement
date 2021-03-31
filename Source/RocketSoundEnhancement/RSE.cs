@@ -39,11 +39,12 @@ namespace RocketSoundEnhancement
             SoundLayerNodes.Clear();
             CollisionData.Clear();
 
-            foreach(var configNode in GameDatabase.Instance.GetConfigNodes("SHIPEFFECTS_SOUNDLAYERS")) {
+            foreach(ConfigNode configNode in GameDatabase.Instance.GetConfigNodes("SHIPEFFECTS_SOUNDLAYERS")) {
                 SoundLayerNodes.AddRange(configNode.GetNodes("SOUNDLAYER"));
             }
 
-            foreach(var configNode in GameDatabase.Instance.GetConfigNodes("RSE_SETTINGS")) {
+            foreach (ConfigNode configNode in GameDatabase.Instance.GetConfigNodes("RSE_SETTINGS"))
+            {
                 if(configNode.HasValue("nextStageClip")) {
                     StageManager.Instance.nextStageClip = GameDatabase.Instance.GetAudioClip(configNode.GetValue("nextStageClip"));
                 }
@@ -51,8 +52,9 @@ namespace RocketSoundEnhancement
                     StageManager.Instance.cannotSeparateClip = GameDatabase.Instance.GetAudioClip(configNode.GetValue("cannotSeparateClip"));
                 }
 
-                if(configNode.HasNode("Colliders")) {
-                    var colNode = configNode.GetNode("Colliders");
+                if (configNode.HasNode("Colliders"))
+                {
+                    ConfigNode colNode = configNode.GetNode("Colliders");
                     foreach(ConfigNode.Value node in colNode.values) {
                         CollidingObject colDataType = (CollidingObject)Enum.Parse(typeof(CollidingObject), node.value, true);
                         if(!CollisionData.ContainsKey(node.name)) {
@@ -64,7 +66,7 @@ namespace RocketSoundEnhancement
                 }
             }
 
-            foreach(var source in GameObject.FindObjectsOfType<AudioSource>()) {
+            foreach(AudioSource source in GameObject.FindObjectsOfType<AudioSource>()) {
                 if(source.name.Contains("Music") || source.name.Contains("PartActionController")) {
                     source.bypassListenerEffects = true;
                 }
@@ -73,7 +75,7 @@ namespace RocketSoundEnhancement
                 }
             }
 
-            var stageSource = StageManager.Instance.GetComponent<AudioSource>();
+            AudioSource stageSource = StageManager.Instance.GetComponent<AudioSource>();
             if(stageSource) {
                 stageSource.bypassListenerEffects = true;
 
@@ -83,11 +85,11 @@ namespace RocketSoundEnhancement
             }
 
             //Find Chatterer Players
-            var chattererObjects = GameObject.FindObjectsOfType<GameObject>().Where(x => x.name.Contains("_player"));
+            IEnumerable<GameObject> chattererObjects = GameObject.FindObjectsOfType<GameObject>().Where(x => x.name.Contains("_player"));
             if(chattererObjects.Count() > 0) {
-                foreach(var chatterer in chattererObjects) {
+                foreach(GameObject chatterer in chattererObjects) {
                     if(ChattererPlayerNames.Contains(Regex.Replace(chatterer.name, @"\d", string.Empty))) {
-                        foreach(var source in chatterer.GetComponents<AudioSource>()) {
+                        foreach(AudioSource source in chatterer.GetComponents<AudioSource>()) {
                             if(source == null)
                                 continue;
 
@@ -140,7 +142,7 @@ namespace RocketSoundEnhancement
                 }
 
                 if(HighLogic.CurrentGame.Parameters.CustomParams<LowpassFilterSettings>().MuffleChatterer) {
-                    foreach(var source in ChattererSources) {
+                    foreach(AudioSource source in ChattererSources) {
 
                         if(source == null)
                             continue;
@@ -169,8 +171,8 @@ namespace RocketSoundEnhancement
         {
             GUILayout.BeginVertical(GUILayout.Width(250));
 
-            var vessel = FlightGlobals.ActiveVessel;
-            var seModule = vessel.GetComponent<ShipEffects>();
+            Vessel vessel = FlightGlobals.ActiveVessel;
+            ShipEffects seModule = vessel.GetComponent<ShipEffects>();
 
             if(lowpassFilter != null) {
                 if(lowpassFilter.enabled) {
@@ -207,7 +209,7 @@ namespace RocketSoundEnhancement
 
                 float accel = seModule.Acceleration;
                 float jerk = seModule.Jerk;
-                var SoundLayers = seModule.SoundLayers;
+                List<SoundLayer> SoundLayers = seModule.SoundLayers;
 
                 string info = "Acceleration: " + accel.ToString("0.00") + "\r\n" +
                               "Jerk: " + jerk.ToString("0.00") + "\r\n" +
@@ -222,7 +224,8 @@ namespace RocketSoundEnhancement
                 if(SoundLayers.Count > 0) {
                     string layerInfo = String.Empty;
                     layerInfo += "Sources: " + seModule.Sources.Count + "\r\n";
-                    foreach(var soundLayer in SoundLayers) {
+                    foreach (SoundLayer soundLayer in SoundLayers)
+                    {
                         layerInfo +=
                             "SoundLayer: " + soundLayer.name + "\r\n" +
                             "Control: " + soundLayer.data + "\r\n";
@@ -232,8 +235,9 @@ namespace RocketSoundEnhancement
                             layerInfo += "No AudioClips \r\n";
                         }
 
-                        if(seModule.Sources.ContainsKey(soundLayer.name)) {
-                            var source = seModule.Sources[soundLayer.name];
+                        if (seModule.Sources.ContainsKey(soundLayer.name))
+                        {
+                            AudioSource source = seModule.Sources[soundLayer.name];
                             if(source != null) {
                                 layerInfo +=
                                     "Volume: " + source.volume + "\r\n" +
@@ -281,7 +285,7 @@ namespace RocketSoundEnhancement
             }
 
             if(!HighLogic.CurrentGame.Parameters.CustomParams<LowpassFilterSettings>().MuffleChatterer) {
-                foreach(var source in ChattererSources) {
+                foreach(AudioSource source in ChattererSources) {
                     if(source == null)
                         continue;
                     source.bypassListenerEffects = true;

@@ -53,9 +53,9 @@ namespace RocketSoundEnhancement
     {
         public static ConfigNode GetConfigNode(string partInfoName, string moduleName, string moduleID = "")
         {
-            var configs = GameDatabase.Instance.GetConfigs("PART");
+            UrlDir.UrlConfig[] configs = GameDatabase.Instance.GetConfigs("PART");
 
-            foreach(var configNode in configs) {
+            foreach(UrlDir.UrlConfig configNode in configs) {
                 if(configNode.name.Replace("_", ".") == partInfoName) {
                     if(moduleID == "") {
                         return Array.FindAll(configNode.config.GetNodes("MODULE"), x => x.GetValue("name") == moduleName).FirstOrDefault();
@@ -69,8 +69,8 @@ namespace RocketSoundEnhancement
 
         public static List<SoundLayer> CreateSoundLayerGroup(ConfigNode[] groupNodes)
         {
-            var group = new List<SoundLayer>();
-            foreach(var node in groupNodes) {
+            List<SoundLayer> group = new List<SoundLayer>();
+            foreach(ConfigNode node in groupNodes) {
                 group.Add(CreateSoundLayer(node));
             }
             return group;
@@ -78,7 +78,7 @@ namespace RocketSoundEnhancement
 
         public static SoundLayer CreateSoundLayer(ConfigNode node)
         {
-            var soundLayer = new SoundLayer();
+            SoundLayer soundLayer = new SoundLayer();
 
             soundLayer.name = node.GetValue("name");
 
@@ -208,7 +208,7 @@ namespace RocketSoundEnhancement
 
         public static AudioSource CreateSource(GameObject gameObject, SoundLayer soundLayer)
         {
-            var source = gameObject.AddComponent<AudioSource>();
+            AudioSource source = gameObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
 
             if(soundLayer.audioClips != null) {
@@ -238,7 +238,7 @@ namespace RocketSoundEnhancement
 
         public static AudioSource CreateOneShotSource(GameObject gameObject, float volume, float pitch, float maxDistance, float spread = 0)
         {
-            var source = gameObject.AddComponent<AudioSource>();
+            AudioSource source = gameObject.AddComponent<AudioSource>();
             source.playOnAwake = false;
             source.volume = volume;
             source.pitch = pitch;
@@ -258,7 +258,7 @@ namespace RocketSoundEnhancement
 
         public static CollidingObject GetCollidingType(GameObject gameObject)
         {
-            var part = Part.FromGO(gameObject);
+            Part part = Part.FromGO(gameObject);
             if(part) {
                 if(part.GetComponent<ModuleAsteroid>()) {
                     return CollidingObject.Dirt;

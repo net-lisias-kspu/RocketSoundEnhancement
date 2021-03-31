@@ -35,15 +35,15 @@ namespace RocketSoundEnhancement
                 audioParent.transform.parent = part.transform;
             }
 
-            var configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
+            ConfigNode configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
 
             engineModules = part.Modules.GetModules<ModuleEngines>();
 
-            foreach(var node in configNode.GetNodes()) {
+            foreach(ConfigNode node in configNode.GetNodes()) {
 
                 string _engineState = node.name;
 
-                var soundLayers = AudioUtility.CreateSoundLayerGroup(node.GetNodes("SOUNDLAYER"));
+                List<SoundLayer> soundLayers = AudioUtility.CreateSoundLayerGroup(node.GetNodes("SOUNDLAYER"));
                 if(soundLayers.Count > 0) {
                     if(SoundLayerGroups.ContainsKey(_engineState)) {
                         SoundLayerGroups[_engineState].AddRange(soundLayers);
@@ -53,7 +53,7 @@ namespace RocketSoundEnhancement
                 }
             }
 
-            foreach(var engineModule in engineModules) {
+            foreach(ModuleEngines engineModule in engineModules) {
                 ignites.Add(engineModule.engineID, engineModule.EngineIgnited);
                 flameouts.Add(engineModule.engineID, engineModule.flameout);
             }
@@ -69,7 +69,7 @@ namespace RocketSoundEnhancement
             if(audioParent == null || !HighLogic.LoadedSceneIsFlight || gamePaused || !initialized)
                 return;
 
-            foreach(var engineModule in engineModules) {
+            foreach(ModuleEngines engineModule in engineModules) {
                 string engineID = engineModule.engineID;
                 bool engineIgnited = engineModule.EngineIgnited;
                 bool engineFlameout = engineModule.flameout;
@@ -79,7 +79,7 @@ namespace RocketSoundEnhancement
                 if(SoundLayerGroups.ContainsKey(engineID)) {
                     float finalControl = control;
 
-                    foreach(var soundLayer in SoundLayerGroups[engineID]) {
+                    foreach(SoundLayer soundLayer in SoundLayerGroups[engineID]) {
                         string sourceLayerName = engineID + "_" + soundLayer.name;
 
                         if(!spools.ContainsKey(sourceLayerName)) {
@@ -123,7 +123,7 @@ namespace RocketSoundEnhancement
                     }
                 }
 
-                foreach(var soundLayer in SoundLayerGroups) {
+                foreach(KeyValuePair<string, List<SoundLayer>> soundLayer in SoundLayerGroups) {
                     switch(soundLayer.Key) {
                         case "Engage":
                             if(engineIgnited && !ignites[engineID]) {
@@ -153,10 +153,10 @@ namespace RocketSoundEnhancement
                             continue;
                     }
 
-                    var oneShotLayers = soundLayer.Value;
-                    foreach(var oneShotLayer in oneShotLayers) {
+                    List<SoundLayer> oneShotLayers = soundLayer.Value;
+                    foreach(SoundLayer oneShotLayer in oneShotLayers) {
                         if(oneShotLayer.audioClips != null) {
-                            var clip = GameDatabase.Instance.GetAudioClip(oneShotLayer.audioClips[0]);
+                            AudioClip clip = GameDatabase.Instance.GetAudioClip(oneShotLayer.audioClips[0]);
                             string oneShotLayerName = soundLayer.Key + "_" + oneShotLayer.name;
 
                             AudioSource source;
@@ -176,8 +176,8 @@ namespace RocketSoundEnhancement
             }
 
             if(Sources.Count > 0) {
-                var sourceKeys = Sources.Keys.ToList();
-                foreach(var source in sourceKeys) {
+                List<string> sourceKeys = Sources.Keys.ToList();
+                foreach(string source in sourceKeys) {
                     if(!Sources[source].isPlaying) {
                         UnityEngine.Object.Destroy(Sources[source]);
                         Sources.Remove(source);
@@ -189,7 +189,7 @@ namespace RocketSoundEnhancement
         void onGamePause()
         {
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Pause();
                 }
             }
@@ -198,7 +198,7 @@ namespace RocketSoundEnhancement
         void onGameUnpause()
         {
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.UnPause();
                 }
             }
@@ -211,7 +211,7 @@ namespace RocketSoundEnhancement
                 return;
 
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Stop();
                     UnityEngine.Object.Destroy(source);
                 }

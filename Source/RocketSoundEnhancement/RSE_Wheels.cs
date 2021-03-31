@@ -44,15 +44,15 @@ namespace RocketSoundEnhancement
             moduleMotor = part.GetComponent<ModuleWheelMotor>();
             moduleDeploy = part.GetComponent<ModuleWheelDeployment>();
 
-            var configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
+            ConfigNode configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
 
             SoundLayerGroups.Clear();
             spools.Clear();
-            foreach(var node in configNode.GetNodes()) {
+            foreach(ConfigNode node in configNode.GetNodes()) {
 
                 string _wheelState = node.name;
 
-                var soundLayers = AudioUtility.CreateSoundLayerGroup(node.GetNodes("SOUNDLAYER"));
+                List<SoundLayer> soundLayers = AudioUtility.CreateSoundLayerGroup(node.GetNodes("SOUNDLAYER"));
                 if(soundLayers.Count > 0) {
                     if(SoundLayerGroups.ContainsKey(_wheelState)) {
                         SoundLayerGroups[_wheelState].AddRange(soundLayers);
@@ -98,7 +98,7 @@ namespace RocketSoundEnhancement
                 isRetracted = moduleDeploy.stateString == "Retracted";
             }
 
-            foreach(var soundLayerGroup in SoundLayerGroups) {
+            foreach(KeyValuePair<string, List<SoundLayer>> soundLayerGroup in SoundLayerGroups) {
                 string soundLayerKey = soundLayerGroup.Key;
                 float control = 0;
                 float masterVolume = HighLogic.CurrentGame.Parameters.CustomParams<Settings>().ShipVolume;
@@ -124,7 +124,7 @@ namespace RocketSoundEnhancement
                     }
                 }
 
-                foreach(var soundLayer in soundLayerGroup.Value) {
+                foreach(SoundLayer soundLayer in soundLayerGroup.Value) {
                     float finalControl = control;
 
                     if(soundLayerKey == "Ground" || soundLayerKey == "Slip") {
@@ -184,8 +184,8 @@ namespace RocketSoundEnhancement
             }
 
             if(Sources.Count > 0) {
-                var sourceKeys = Sources.Keys.ToList();
-                foreach(var source in sourceKeys) {
+                List<string> sourceKeys = Sources.Keys.ToList();
+                foreach(string source in sourceKeys) {
                     if(!Sources[source].isPlaying) {
                         UnityEngine.Object.Destroy(Sources[source]);
                         Sources.Remove(source);
@@ -207,7 +207,7 @@ namespace RocketSoundEnhancement
         {
             gamePaused = false;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.UnPause();
                 }
             }
@@ -217,7 +217,7 @@ namespace RocketSoundEnhancement
         {
             gamePaused = true;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Pause();
                 }
             }
@@ -226,7 +226,7 @@ namespace RocketSoundEnhancement
         void OnDestroy()
         {
             if(Sources.Count() > 0) {
-                foreach(var source in Sources.Keys) {
+                foreach(string source in Sources.Keys) {
                     GameObject.Destroy(Sources[source]);
                 }
             }

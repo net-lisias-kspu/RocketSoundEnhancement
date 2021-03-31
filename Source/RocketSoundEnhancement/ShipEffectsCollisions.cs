@@ -27,14 +27,14 @@ namespace RocketSoundEnhancement
             if(state == StartState.Editor || state == StartState.None)
                 return;
 
-            var configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
+            ConfigNode configNode = AudioUtility.GetConfigNode(part.partInfo.name, this.moduleName);
 
-            foreach(var groupNode in configNode.GetNodes()) {
-                var soundLayerNodes = groupNode.GetNodes("SOUNDLAYER");
+            foreach(ConfigNode groupNode in configNode.GetNodes()) {
+                ConfigNode[] soundLayerNodes = groupNode.GetNodes("SOUNDLAYER");
                 CollisionType collisionType;
 
                 if(Enum<CollisionType>.TryParse(groupNode.name, out collisionType)) {
-                    var soundLayers = AudioUtility.CreateSoundLayerGroup(soundLayerNodes);
+                    List<SoundLayer> soundLayers = AudioUtility.CreateSoundLayerGroup(soundLayerNodes);
                     if(SoundLayerGroups.ContainsKey(collisionType)) {
                         SoundLayerGroups[collisionType].AddRange(soundLayers);
                     } else {
@@ -51,7 +51,7 @@ namespace RocketSoundEnhancement
         {
             gamePaused = false;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.UnPause();
                 }
             }
@@ -61,7 +61,7 @@ namespace RocketSoundEnhancement
         {
             gamePaused = true;
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Pause();
                 }
             }
@@ -72,8 +72,8 @@ namespace RocketSoundEnhancement
             if(gamePaused) return;
 
             if(Sources.Count > 0) {
-                var sourceKeys = Sources.Keys.ToList();
-                foreach(var source in sourceKeys) {
+                List<string> sourceKeys = Sources.Keys.ToList();
+                foreach(string source in sourceKeys) {
                     if(!Sources[source].isPlaying) {
                         UnityEngine.Object.Destroy(Sources[source]);
                         Sources.Remove(source);
@@ -87,7 +87,7 @@ namespace RocketSoundEnhancement
             GameEvents.onGamePause.Remove(onGamePause);
             GameEvents.onGameUnpause.Remove(onGameUnpause);
             if(Sources.Count > 0) {
-                foreach(var source in Sources.Values) {
+                foreach(AudioSource source in Sources.Values) {
                     source.Stop();
                     UnityEngine.Object.Destroy(source);
                 }
@@ -96,7 +96,7 @@ namespace RocketSoundEnhancement
 
         void OnCollisionEnter(Collision col)
         {
-            var collisionType = AudioUtility.GetCollidingType(col.gameObject);
+            CollidingObject collisionType = AudioUtility.GetCollidingType(col.gameObject);
 
             if(SoundLayerGroups.ContainsKey(CollisionType.CollisionEnter)) {
                 PlaySounds(CollisionType.CollisionEnter, col.relativeVelocity.magnitude, collisionType, true);
@@ -107,7 +107,7 @@ namespace RocketSoundEnhancement
 
         void OnCollisionStay(Collision col)
         {
-            var collisionType = AudioUtility.GetCollidingType(col.gameObject);
+            CollidingObject collisionType = AudioUtility.GetCollidingType(col.gameObject);
             if(SoundLayerGroups.ContainsKey(CollisionType.CollisionStay)) {
                 PlaySounds(CollisionType.CollisionStay, col.relativeVelocity.magnitude, collisionType);
             }
@@ -116,14 +116,14 @@ namespace RocketSoundEnhancement
         void OnCollisionExit(Collision col)
         {
             if(SoundLayerGroups.ContainsKey(CollisionType.CollisionStay)) {
-                foreach(var layer in SoundLayerGroups[CollisionType.CollisionStay]) {
+                foreach(SoundLayer layer in SoundLayerGroups[CollisionType.CollisionStay]) {
                     if(Sources.ContainsKey(layer.name)) {
                         Sources[layer.name].Stop();
                     }
                 }
             }
 
-            var collisionType = AudioUtility.GetCollidingType(col.gameObject);
+            CollidingObject collisionType = AudioUtility.GetCollidingType(col.gameObject);
             if(SoundLayerGroups.ContainsKey(CollisionType.CollisionExit)) {
                 PlaySounds(CollisionType.CollisionExit, col.relativeVelocity.magnitude, collisionType, true);
             }
@@ -132,12 +132,12 @@ namespace RocketSoundEnhancement
 
         void PlaySounds(CollisionType collisionType, float control, CollidingObject collidingObjectType = CollidingObject.Dirt, bool oneshot = false)
         {
-            foreach(var soundLayer in SoundLayerGroups[collisionType]) {
+            foreach(SoundLayer soundLayer in SoundLayerGroups[collisionType]) {
 
                 float finalVolume = soundLayer.volume.Value(control) * soundLayer.massToVolume.Value((float)part.physicsMass);
                 float finalPitch = soundLayer.pitch.Value(control) * soundLayer.massToPitch.Value((float)part.physicsMass);
 
-                var layerMaskName = soundLayer.data.ToLower();
+                string layerMaskName = soundLayer.data.ToLower();
                 if(layerMaskName != "") {
                     switch(collidingObjectType) {
                         case CollidingObject.Vessel:
@@ -164,7 +164,7 @@ namespace RocketSoundEnhancement
                         }
                     }
 
-                    var source = Sources[soundLayer.name];
+                    AudioSource source = Sources[soundLayer.name];
 
                     if(source == null)
                         return;
@@ -173,7 +173,7 @@ namespace RocketSoundEnhancement
                     source.pitch = finalPitch;
 
                     if(oneshot) {
-                        var audioClips = soundLayer.audioClips;
+                        string[] audioClips = soundLayer.audioClips;
                         if(audioClips == null)
                             continue;
 
@@ -181,7 +181,7 @@ namespace RocketSoundEnhancement
                         if(audioClips.Length > 1)
                             index = UnityEngine.Random.Range(0, audioClips.Length);
 
-                        var clip = GameDatabase.Instance.GetAudioClip(audioClips[index]);
+                        AudioClip clip = GameDatabase.Instance.GetAudioClip(audioClips[index]);
 
                         source.volume = 1;
                         finalVolume *= UnityEngine.Random.Range(0.9f, 1.0f);
