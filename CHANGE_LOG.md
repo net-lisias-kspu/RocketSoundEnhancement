@@ -1,5 +1,13 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2020-1120: 0.5.1 (ensou04) for KSP 1.5.1
+	+ Download the Config/Library from v0.5.0 for the patches and sounds
+	+ Work on the limiter is still being done and might be replaced in the future.
+	+ Plugin
+			- Added Whitelist for Chatterer
+			- Reduced sound cracking from Audio Limiter by moving the Volume Reduction code from LateUpdate() to OnAudioFilterRead()
+	+ Configs
+			- Fixed Collision Module getting applied to parts that does not have crashTolerance
 * 2020-1119: 0.5.0 (ensou04) for KSP 1.5.1
 	+ Rewrite from the ground up.
 	+ IMPORTANT:
