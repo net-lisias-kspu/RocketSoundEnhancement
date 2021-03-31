@@ -1,9 +1,10 @@
-﻿using KSP.UI.Screens;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using UnityEngine;
+using KSP.UI.Screens;
 
 namespace RocketSoundEnhancement
 {

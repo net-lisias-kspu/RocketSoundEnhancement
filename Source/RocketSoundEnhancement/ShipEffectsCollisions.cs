@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+
 using UnityEngine;
+
+using KSPe.System;
 
 namespace RocketSoundEnhancement
 {
@@ -31,7 +33,7 @@ namespace RocketSoundEnhancement
                 var soundLayerNodes = groupNode.GetNodes("SOUNDLAYER");
                 CollisionType collisionType;
 
-                if(Enum.TryParse(groupNode.name, out collisionType)) {
+                if(Enum<CollisionType>.TryParse(groupNode.name, out collisionType)) {
                     var soundLayers = AudioUtility.CreateSoundLayerGroup(soundLayerNodes);
                     if(SoundLayerGroups.ContainsKey(collisionType)) {
                         SoundLayerGroups[collisionType].AddRange(soundLayers);

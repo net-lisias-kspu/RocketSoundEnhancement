@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
+
 using UnityEngine;
 
 namespace RocketSoundEnhancement
@@ -33,7 +33,7 @@ namespace RocketSoundEnhancement
                 if(vessel.Parts[0].PhysicsSignificance == 1 || vessel.Parts[0].Modules.Contains("ModuleAsteroid") || vessel.Parts[0].Modules.Contains("KerbalEVA")) {
                     initialized = false;
                     ignoreVessel = true;
-                    //UnityEngine.Debug.Log("ShipEffects: [" + vessel.GetDisplayName() + "] Ignored, " + " Not A Ship or Physicsless.");
+                    Log.dbg("ShipEffects: [{0}] Ignored, Not A Ship or Physicsless.", vessel.GetDisplayName());
                     return;
                 }
             }
@@ -47,7 +47,7 @@ namespace RocketSoundEnhancement
 
             initialized = true;
 
-            //UnityEngine.Debug.Log("ShipEffects: [" + vessel.GetDisplayName() + "] Loaded with" + " PartCount: " + vessel.Parts.Count());
+            Log.dbg("ShipEffects: [{0}] Loaded with {1} PartCount: ", vessel.GetDisplayName(), vessel.Parts.Count());
         }
 
         void onGamePause()
