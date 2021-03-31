@@ -1,5 +1,10 @@
 # Rocket Sound Enhancement :: Change Log
 
+* 2020-1121: 0.5.2 (ensou04) for KSP 1.5.1
+	+ Added Option to Muffle Chatterer Sounds (off by default)
+	+ Changed ShipEffects Thrust controls to TotalThrust / Mass instead of just Total Thrust Power
+	+ Updated ShipEffects.cfg to reflect new change
+	+ Reduced Pitching for Medium Rattles layer in ShipEffects.cfg
 * 2020-1120: 0.5.1 (ensou04) for KSP 1.5.1
 	+ Download the Config/Library from v0.5.0 for the patches and sounds
 	+ Work on the limiter is still being done and might be replaced in the future.
